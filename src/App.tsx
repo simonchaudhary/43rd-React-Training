@@ -1,12 +1,17 @@
-import Counter from "./components/Counter";
+import React from "react";
+import { MyProvider } from "./Contexts";
+import ComponentA from "./ComponentA";
+import ComponentB from "./ComponentB";
 
 function App() {
   return (
-    <div className="flex gap-2">
-      <Counter initialValue={2} />
-
-      {/* <Counter initialValue={3} /> */}
-    </div>
+    <MyProvider>
+      <div>
+        <h1>Context API Example</h1>
+        <ComponentA />
+        <ComponentB />
+      </div>
+    </MyProvider>
   );
 }
 

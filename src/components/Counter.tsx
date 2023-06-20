@@ -11,7 +11,7 @@ interface ICounter {
 function Counter(props: ICounter) {
   const { initialValue } = props;
 
-  const { counter, increment, decrement } = useCounter(initialValue);
+  // const { counter, increment, decrement } = useCounter(initialValue);
 
   useDocumentTitle(`Count is ${counter}`);
 
