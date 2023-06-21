@@ -1,23 +1,22 @@
 // ComponentA.tsx
 import React, { useContext } from "react";
-import { MyContext, MyContextType } from "./Contexts";
-import Button from "./components/Button";
+import { User, UserContext } from "./contexts/Contexts";
 
-const ComponentA: React.FC = () => {
-  const { data, setData } = useContext(MyContext) as MyContextType;
+const ComponentA = () => {
+  const { fullName, setFullName } = useContext(UserContext) as User;
 
-  console.log("file", data);
+  console.log("file", fullName);
 
   const handleClick = () => {
-    setData("Component A value");
+    setFullName("Component A value");
   };
 
   return (
     <div className="p-4 bg-amber-300">
       <h2>Component A</h2>
-      <p>Data: {data}</p>
+      <p>Data: {fullName}</p>
 
-      <Button onClick={handleClick} label="Update" />
+      <button onClick={handleClick}>update</button>
     </div>
   );
 };

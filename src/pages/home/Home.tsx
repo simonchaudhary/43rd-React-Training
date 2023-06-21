@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { MyContext, MyContextType } from "../../Contexts";
+import { MyContext, MyContextType } from "../../contexts/Contexts";
 
 function Home() {
   // const { data } = useContext(MyContext) as MyContextType;

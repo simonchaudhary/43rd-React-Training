@@ -1,23 +1,22 @@
-// ComponentB.tsx
+// ComponentA.tsx
 import React, { useContext } from "react";
-import { MyContext, MyContextType } from "./Contexts";
-import Button from "./components/Button";
+import { User, UserContext } from "./contexts/Contexts";
 
-const ComponentB: React.FC = () => {
-  const { data, setData } = useContext(MyContext) as MyContextType;
+const ComponentB = () => {
+  const { fullName, setFullName } = useContext(UserContext) as User;
 
-  console.log("file", data);
+  console.log("file", fullName);
 
   const handleClick = () => {
-    setData("Component B value");
+    setFullName("Component B value");
   };
 
   return (
-    <div className="p-4 bg-blue-400">
+    <div className="p-4 bg-amber-300">
       <h2>Component B</h2>
-      <p>Data: {data}</p>
+      <p>Data: {fullName}</p>
 
-      <Button onClick={handleClick} label="Update" />
+      <button onClick={handleClick}>update</button>
     </div>
   );
 };

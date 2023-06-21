@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
+import { User, UserContext } from "../contexts/Contexts";
 
 interface IText {
-  text: string;
+  text?: string;
 }
 
 function Text(props: IText) {
   const { text } = props;
 
-  return <p>{text}</p>;
+  const { fullName, setFullName } = useContext(UserContext) as User;
+
+  return <p>{fullName}</p>;
 }
 
 export default Text;

@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { MyProvider } from "./Contexts";
+import { UserProvider } from "./contexts/Contexts";
 import ComponentA from "./ComponentA";
 import ComponentB from "./ComponentB";
 import Router from "./Router";
 import { fetchPhotos } from "./services/getPhotos";
 import Home from "./pages/home";
+import Text from "./components/Text";
 
 function App() {
   // useEffect(() => {
@@ -19,14 +20,20 @@ function App() {
   //         <ComponentB />
   //       </div>
   //     </div>
-  //     {/* <Router /> */}
   //   </MyProvider>
+  // );
+  // return (
+  //   <div>
+  //     <Router />
+  //   </div>
   // );
 
   return (
-    <div>
-      <Router />
-    </div>
+    <UserProvider>
+      <ComponentA />
+      <ComponentB />
+      <Text />
+    </UserProvider>
   );
 }
 
