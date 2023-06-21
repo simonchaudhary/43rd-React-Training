@@ -1,14 +1,20 @@
 // context.tsx
-import React, { createContext, useState } from "react";
+import { ReactElement, ReactNode, createContext, useState } from "react";
 
-interface MyContextType {
+export interface MyContextType {
   data: string;
   setData: (value: string) => void;
 }
 
 const MyContext = createContext<MyContextType | undefined>(undefined);
 
-const MyProvider: React.FC = ({ children }: any) => {
+interface MyProviderProps {
+  children: JSX.Element;
+}
+
+const MyProvider = (props: MyProviderProps) => {
+  const { children } = props;
+
   const [data, setData] = useState("Initial Value");
 
   return (

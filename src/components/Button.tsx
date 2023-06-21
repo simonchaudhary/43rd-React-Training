@@ -13,7 +13,7 @@ function Button(props: IButton) {
     <button
       onClick={onClick}
       className={classNames(
-        "p-1 bg-slate-500 text-white w-10 h-10 flex items-center justify-center font-medium text-lg",
+        "p-1 bg-green-400 text-white  h-10 flex items-center justify-center font-medium text-lg",
         className
       )}
     >
