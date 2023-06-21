@@ -7,22 +7,26 @@ import { fetchPhotos } from "./services/getPhotos";
 import Home from "./pages/home";
 
 function App() {
-  useEffect(() => {
-    fetchPhotos();
-  }, []);
+  // useEffect(() => {
+  //   fetchPhotos();
+  // }, []);
+  // return (
+  //   <MyProvider>
+  //     <div>
+  //       <Home />
+  //       <div className="flex gap-x-6">
+  //         <ComponentA />
+  //         <ComponentB />
+  //       </div>
+  //     </div>
+  //     {/* <Router /> */}
+  //   </MyProvider>
+  // );
 
   return (
-    <MyProvider>
-      <div>
-        <Home />
-
-        <div className="flex gap-x-6">
-          <ComponentA />
-          <ComponentB />
-        </div>
-      </div>
-      {/* <Router /> */}
-    </MyProvider>
+    <div>
+      <Router />
+    </div>
   );
 }
 
