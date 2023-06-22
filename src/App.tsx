@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import Counter from "./components/Counter";
 import CounterToolkit from "./components/CounterToolkit";
 import Login from "./pages/Login";
-import { fetchPhotos } from "./services/photos";
+// import { fetchPhotos } from "./services/photos";
+import { useAppDispatch } from "./hooks/redux";
+import { fetchPhotos } from "./redux/slices/photo";
 
 interface Photo {
   albumId: number;
@@ -13,19 +15,25 @@ interface Photo {
 }
 
 function App() {
-  const [myPhotos, setMyPhotos] = useState<Photo[]>([]);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    (async () => {
-      const data = await fetchPhotos();
-
-      setMyPhotos(data);
-    })();
+    dispatch(fetchPhotos());
   }, []);
+
+  // const [myPhotos, setMyPhotos] = useState<Photo[]>([]);
+
+  // useEffect(() => {
+  //   (async () => {
+  //     const data = await fetchPhotos();
+
+  //     setMyPhotos(data);
+  //   })();
+  // }, []);
 
   return (
     <div>
-      My photos
+      {/* My photos
       {myPhotos.map((item) => (
         <div className="w-80" key={item.id}>
           <h1>{item.albumId}</h1>
@@ -33,7 +41,9 @@ function App() {
 
           <img src={item.url} alt={item.title} />
         </div>
-      ))}
+      ))} */}
+
+      <CounterToolkit />
     </div>
   );
 }
