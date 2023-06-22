@@ -1,11 +1,7 @@
 import axios, { ResponseType } from "axios";
-// Set the base URL
 
 const instance = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com/",
-  headers: {
-    "Content-Type": "application/json",
-  },
 });
 
 export const get = async (
@@ -21,6 +17,8 @@ export const get = async (
   })
     .then((response) => response)
     .catch((error) => {
+      console.log("error", error);
+
       throw error?.response?.data;
     });
 };

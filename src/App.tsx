@@ -1,9 +1,41 @@
+import { useEffect, useState } from "react";
 import Counter from "./components/Counter";
 import CounterToolkit from "./components/CounterToolkit";
 import Login from "./pages/Login";
+import { fetchPhotos } from "./services/photos";
+
+interface Photo {
+  albumId: number;
+  id: number;
+  thumbnailUrl: string;
+  title: string;
+  url: string;
+}
 
 function App() {
-  return <Login />;
+  const [myPhotos, setMyPhotos] = useState<Photo[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await fetchPhotos();
+
+      setMyPhotos(data);
+    })();
+  }, []);
+
+  return (
+    <div>
+      My photos
+      {myPhotos.map((item) => (
+        <div className="w-80" key={item.id}>
+          <h1>{item.albumId}</h1>
+          <span>{item.title}</span>
+
+          <img src={item.url} alt={item.title} />
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default App;
