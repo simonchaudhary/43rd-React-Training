@@ -5,13 +5,13 @@ import useDocumentTitle from "../hooks/useDocumentTitle";
 import Text from "./Text";
 
 interface ICounter {
-  initialValue: number;
+  initialValue?: number;
 }
 
 function Counter(props: ICounter) {
-  const { initialValue } = props;
+  const { initialValue = 0 } = props;
 
-  // const { counter, increment, decrement } = useCounter(initialValue);
+  const { counter, increment, decrement } = useCounter(initialValue);
 
   useDocumentTitle(`Count is ${counter}`);
 
