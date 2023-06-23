@@ -31,14 +31,12 @@ function Router() {
           <Route path=":teamId/edit" element={<Team />} />
         </Route>
 
-        <Route
+        <ProtectedRoute
+          isLoggedIn={false}
           path="profile"
-          element={
-            <ProtectedRoute isLoggedIn={false}>
-              <h1>this is profile</h1>
-            </ProtectedRoute>
-          }
+          element={<h1>this is profile</h1>}
         />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

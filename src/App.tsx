@@ -18,9 +18,9 @@ interface Photo {
 function App() {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(fetchPhotos());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchPhotos());
+  // }, []);
 
   // const [myPhotos, setMyPhotos] = useState<Photo[]>([]);
 
