@@ -4,6 +4,7 @@ import AboutUs from "./pages/aboutUs";
 import NotFound from "./pages/NotFound";
 import Team from "./pages/team/Team";
 import TeamId from "./pages/team/TeamId";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function TeamList() {
   return <div>Teamlist</div>;
@@ -30,6 +31,14 @@ function Router() {
           <Route path=":teamId/edit" element={<Team />} />
         </Route>
 
+        <Route
+          path="profile"
+          element={
+            <ProtectedRoute isLoggedIn={false}>
+              <h1>this is profile</h1>
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

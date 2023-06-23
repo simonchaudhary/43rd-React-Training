@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 // import { fetchPhotos } from "./services/photos";
 import { useAppDispatch } from "./hooks/redux";
 import { fetchPhotos } from "./redux/slices/photo";
+import Router from "./Router";
 
 interface Photo {
   albumId: number;
@@ -43,7 +44,8 @@ function App() {
         </div>
       ))} */}
 
-      <CounterToolkit />
+      {/* <CounterToolkit /> */}
+      <Router />
     </div>
   );
 }
